@@ -15,7 +15,6 @@ async def get_region_data():
         return {"region": region, "availability_zone": az}
 
     except requests.exceptions.RequestException:
-        # Fallback for when you test this locally on your own computer
         return {
             "error": "Could not connect to AWS Metadata API.",
             "message": "API accessible only from within an EC2 instance.",
