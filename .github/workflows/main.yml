@@ -1,0 +1,26 @@
+name: Build Artifact and Upload to S3
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Zip the application
+      run: zip -r app-artifact.zip main.py utils
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-north-1 
+
+    - name: Upload Artifact to S3
+      run: aws s3 cp app-artifact.zip s3://mperczak-aws-epam-assigment/artifacts/app-artifact.zip
