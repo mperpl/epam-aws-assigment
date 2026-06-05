@@ -3,7 +3,6 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-
 @app.get("/az-region")
 async def get_region_data():
     try:
