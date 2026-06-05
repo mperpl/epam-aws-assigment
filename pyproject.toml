@@ -1,0 +1,12 @@
+[project]
+name = "assigment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "boto3>=1.43.23",
+    "boto3-stubs[essential]>=1.43.23",
+    "fastapi[standard]>=0.136.3",
+    "requests>=2.34.2",
+]
