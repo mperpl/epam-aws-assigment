@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Zip the application
-      run: zip -r app-artifact.zip main.py utils
+      run: zip -r app-artifact.zip main.py utils pyproject.toml
 
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
